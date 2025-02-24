@@ -13,4 +13,7 @@ format:
   # jats: default
 
 execute:
-  freeze: false
+  echo: true
+  warning: false
+  message: false
+  error: false
