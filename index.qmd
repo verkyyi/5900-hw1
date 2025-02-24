@@ -109,11 +109,63 @@ ggcorrplot(corr_matrix, lab = TRUE, title = 'Correlation Matrix')
 **Analysis:** The heatmap shows the correlations between quantitative variables. Strong correlations can help identify which metrics are most predictive of admissions success.
 
 
-
 ## Conclusion
 
-The analysis indicates that GPA, test scores, and volunteer experience significantly influence admissions decisions. The state-wise analysis suggests opportunities for targeted recruitment. To enhance admission strategies, the institution could:
+### GPA Impact
 
-- Focus on supporting applicants from states with lower acceptance rates.
-- Prioritize academic and extracurricular excellence in admissions criteria.
-- Consider refining recruitment efforts based on insights gained from the data.
+1. High GPAs (3.0-3.5 and 3.5-4.0) have significantly higher acceptance rates, with the 3.5-4.0 range being the strongest predictor of acceptance.
+2. Suggests that academic performance is a critical factor in the admission process.
+
+### Work Experience
+
+1. Applicants with less work experience (0-20 years) show higher acceptance rates.
+2. This might indicate a preference for younger applicants or those earlier in their career paths, possibly aligning with program goals targeting recent graduates or early-career professionals.
+
+### Test Scores
+
+1. A sharp increase in acceptance rates is observed in the 900-1000 test score range.
+2. Emphasizes the importance of standardized testing in the selection process.
+
+### Writing Scores
+
+1. High writing scores (90-100) improve acceptance chances, but the acceptance rate is still significantly lower compared to other metrics.
+2. Indicates writing score might be a secondary factor or less emphasized compared to GPA and test scores.
+	
+### Volunteer Level
+
+1. Volunteer levels do not show a strong correlation with acceptance rates, suggesting this might not be a significant criterion in the current evaluation process.
+	
+### Applicant’s Stat
+
+1. There is a notable geographical impact on acceptance rates, with California having the highest acceptance rate.
+2. States like Alabama, Vermont, and Virginia also show strong acceptance metrics, while other states may need more targeted outreach or support.
+
+## Suggestions for Future Admission Evaluations:
+	
+1.	Enhance GPA Weighting:
+	•	Maintain or increase the emphasis on academic performance, particularly for applicants with GPAs above 3.0.
+	•	Consider adding additional weight to applicants from rigorous academic institutions or challenging coursework.
+
+2.	Reevaluate Work Experience Criteria:
+	•	Consider whether the preference for less work experience aligns with program goals. If diversity in professional backgrounds is desired, adjust admission strategies accordingly.
+
+3.	Writing Skills Assessment:
+	•	If writing is a critical skill for success in the program, enhance the evaluation of writing samples or essays. Alternatively, if writing scores are not as crucial, streamline this criterion to focus on higher-impact factors.
+
+4.	Volunteer Experience Consideration:
+	•	Since volunteer experience does not show a strong influence on acceptance rates, consider de-emphasizing this criterion unless community service is a core value of the institution.
+
+## Marketing Campaign Suggestions:
+
+1.	Target High-Performing Students
+	- Focus outreach efforts on students with high GPAs and strong standardized test scores.
+	- Collaborate with high schools, undergraduate institutions, and tutoring centers to attract these candidates.
+
+2.	Regional Campaigns
+	- Implement targeted marketing in high-acceptance regions such as California, Virginia, and Vermont.
+	- For states with lower acceptance rates, explore potential barriers (e.g., awareness, application support) and address them through localized campaigns.
+
+## Overall Strategy
+
+1. By focusing on academic excellence and regional strengths, while adjusting evaluation criteria to align with institutional priorities, the admissions team can enhance both the quality and diversity of incoming students.
+2. Simultaneously, targeted and data-driven marketing efforts will ensure that the institution attracts well-qualified applicants and improves overall admission outcomes.
