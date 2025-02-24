@@ -13,4 +13,4 @@ format:
   # jats: default
 
 execute:
-  freeze: true
+  freeze: false
