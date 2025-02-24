@@ -42,7 +42,7 @@ library(ggplot2)
 library(readr)
 library(dplyr)
 library(ggcorrplot)
-
+install.packages("ggcorrplot")
 # Load the data
 data <- read_csv('SummerStudentAdmissions2.csv')
 ```
@@ -89,7 +89,6 @@ data$State <- str_replace_all(data$State, " ", "")
 # Check cleaned data
 summary(data)
 ```
-
 ## Visualizations and Analysis
 
 ### 1. Admission Rates by State
@@ -145,6 +144,12 @@ Key observations include:
 -   High writing scores (90-100) improve chances for getting admission
 
 -   Volunteer Experience Impact: it appears to have minimal impact on the final admission decision
+
+### 5. Bar Plot: Acceptance Rates
+
+![](images/acceptance_rates_factors.png)
+
+**Analysis:** The bar chart subplots show the spread of admitted individuals by GPA, work experience, test score, writing score, volunteer level, and state.
 
 ## Conclusion
 
