@@ -82,7 +82,10 @@ summary(data)
 ggplot(data, aes(x = State, fill = Decision)) +
   geom_bar(position = 'fill') +
   labs(title = 'Admission Rates by State', y = 'Proportion', x = 'State') +
-  theme_minimal()
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  # specify specifc color for each decision
+  scale_fill_manual(values = c('Admit' = 'green', 'Decline' = 'red', 'Waitlist' = 'blue'))
 ```
 
 **Analysis:** The visualization highlights which states have higher or lower admission rates. States with consistently low acceptance rates may need targeted recruitment strategies or support programs.
