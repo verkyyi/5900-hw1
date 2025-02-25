@@ -42,7 +42,7 @@ library(ggplot2)
 library(readr)
 library(dplyr)
 library(ggcorrplot)
-install.packages("ggcorrplot")
+
 # Load the data
 data <- read_csv('SummerStudentAdmissions2.csv')
 ```
@@ -84,7 +84,13 @@ data$State <- str_to_title(data$State)
 data$State <- str_replace_all(data$State, " ", "")
 ```
 
-4. Check cleaned data.
+5. Remote outliers.
+```{r}
+# Remove outliers for each column
+data <- data %>% filter(WorkExp <= 20)
+```
+
+6. Check cleaned data.
 ```{r}
 # Check cleaned data
 summary(data)
@@ -95,6 +101,23 @@ summary(data)
 
 ```{r admission-rates-by-state}
 ggplot(data, aes(x = State, fill = Decision)) +
+  geom_bar(position = 'fill') +
+  geom_text(aes(label = ..count..), stat = 'count', position = position_fill(vjust = 0.5), color = 'white') +
+  labs(title = 'Admission Rates by State', y = 'Proportion', x = 'State') +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+To comparing the admission rates across states with enough data points, we filtered out states with less than 10 applicants.
+
+```{r}
+# Filter states with less than 10 applicants
+data_filtered <- data %>%
+  group_by(State) %>%
+  filter(n() >= 10)
+
+# Plot admission rates by state
+ggplot(data_filtered, aes(x = State, fill = Decision)) +
   geom_bar(position = 'fill') +
   geom_text(aes(label = ..count..), stat = 'count', position = position_fill(vjust = 0.5), color = 'white') +
   labs(title = 'Admission Rates by State', y = 'Proportion', x = 'State') +
@@ -127,7 +150,7 @@ ggcorrplot(corr_matrix, lab = TRUE, title = 'Correlation Matrix')
 ### 4. Boxplot of Voluteer Level Distribution Grouped by Decision
 
 ```{r boxplot-volunteer-level}
-ggplot(data, aes(x = Decision, y = VolunteerLevel)) +
+ggplot(data, aes(x = Decision, y = VolunteerLevel, fill = Decision)) +
   geom_boxplot() +
   labs(title = 'Volunteer Level Distribution by Admission Decision', x = 'Decision', y = 'Volunteer Level') +
   theme_minimal()
@@ -147,50 +170,42 @@ Key observations include:
 
 ### 5. Bar Plot: Acceptance Rates
 
-![](images/acceptance_rates_factors.png)
+# ![](images/acceptance_rates_factors.png)
 
 **Analysis:** The bar chart subplots show the spread of admitted individuals by GPA, work experience, test score, writing score, volunteer level, and state.
 
-## Conclusion
+## Conclusion and Future Recommendations
 
-### GPA Impact
+### GPA and Test Score
 
-1.  High GPAs (3.0-3.5 and 3.5-4.0) have significantly higher acceptance rates, with the 3.5-4.0 range being the strongest predictor of acceptance.
-2.  Suggests that academic performance is a critical factor in the admission process.
-
-### Test Scores
-
-1.  A sharp increase in acceptance rates is observed in the 900-1000 test score range.
-2.  Emphasizes the importance of standardized testing in the selection process.
-
-### Writing Scores
-
-1.  High writing scores (90-100) improve acceptance chances, but the acceptance rate is still significantly lower compared to other metrics.
-2.  Indicates writing score might be a secondary factor or less emphasized compared to GPA and test scores.
-
-### Work Experience
-
-1.  Applicants with less work experience (0-20 years) show higher acceptance rates.
-2.  This might indicate a preference for younger applicants or those earlier in their career paths, possibly aligning with program goals targeting recent graduates or early-career professionals.
+1. High GPAs (3.0-3.5 and 3.5-4.0) have significantly higher acceptance rates, with the 3.5-4.0 range being the strongest predictor of acceptance.
+2. A sharp increase in acceptance rates is observed in the 900-1000 test score range.
+3. Comparing to GPA, test score has a stronger correlation with acceptance rates.
 
 ### Volunteer Level
 
 1.  Volunteer levels do not show a strong correlation with acceptance rates, suggesting this might not be a significant criterion in the current evaluation process.
 
-### Applicant’s Stat
+### Applicant’s States
 
 1.  There is a notable geographical impact on acceptance rates, with California having the highest acceptance rate.
-2.  States like Alabama, Vermont, and Virginia also show strong acceptance metrics, while other states may need more targeted outreach or support.
 
-## Suggestions for Future Admission Evaluations:
+## Future Recommendations
 
-1.  Enhance GPA Weighting: • Maintain or increase the emphasis on academic performance, particularly for applicants with GPAs above 3.0. • Consider adding additional weight to applicants from rigorous academic institutions or challenging coursework.
+1.  Enhance GPA Weighting
+    - Maintain or increase the emphasis on academic performance, particularly for applicants with GPAs above 3.0. 
+    - Consider adding additional weight to applicants from rigorous academic institutions or challenging coursework.
 
-2.  Reevaluate Work Experience Criteria: • Consider whether the preference for less work experience aligns with program goals. If diversity in professional backgrounds is desired, adjust admission strategies accordingly.
+2.  Reevaluate Work Experience Criteria: 
+    - Consider whether the preference for less work experience aligns with program goals. 
+    - If diversity in professional backgrounds is desired, adjust admission strategies accordingly.
 
-3.  Writing Skills Assessment: • If writing is a critical skill for success in the program, enhance the evaluation of writing samples or essays. Alternatively, if writing scores are not as crucial, streamline this criterion to focus on higher-impact factors.
+3.  Writing Skills Assessment
+    - If writing is a critical skill for success in the program, enhance the evaluation of writing samples or essays. Alternatively, if writing scores are not as crucial, streamline this criterion to focus on higher-impact factors.
 
-4.  Volunteer Experience Consideration: • Since volunteer experience does not show a strong influence on acceptance rates, consider de-emphasizing this criterion unless community service is a core value of the institution.
+4.  Volunteer Experience Consideration
+    - Since volunteer experience does not show a strong influence on acceptance rates, consider de-emphasizing this criterion unless community service is a core value of the institution.
+    - Alternatively, explore ways to integrate volunteer experience into the admissions process, such as through interviews or case studies.
 
 ## Marketing Campaign Suggestions:
 

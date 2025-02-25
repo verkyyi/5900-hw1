@@ -1,18 +1,9 @@
 {
   "index.qmd": {
-    "index.embed.ipynb": "0910615f",
-    "index.out.ipynb": "4cef9e59",
-    "index-preview.html": "663a1225",
-    "index.html": "649815e2",
-    "index.tex": "80b44f54"
-  },
-  "bella_boxplots.ipynb": {
-<<<<<<< HEAD
-    "bella_boxplots.out.ipynb": "f44bdff3",
-    "bella_boxplots-preview.html": "fd5ffa7d"
-=======
-    "bella_boxplots.out.ipynb": "9984704c",
-    "bella_boxplots-preview.html": "ca623b1b"
->>>>>>> b75be8f884fc3544819f503160333e59a64062f7
+    "index.embed.ipynb": "b2ce4ef3",
+    "index.out.ipynb": "21dd3895",
+    "index-preview.html": "e2db5a22",
+    "index.html": "47a654a9",
+    "index.tex": "ec087386"
   }
 }

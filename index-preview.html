@@ -1,42 +1,156 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  lang="en"
+  xml:lang="en"
+  >
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="quarto-1.4.549" />
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Admission Evaluation Criteria Analysis</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
 
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
-<style>
+    <title>Admission Evaluation Criteria Analysis</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = "index.html";
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    <!-- htmldependencies:E3FAD763 -->
+     <style>
 
       .quarto-title-block .quarto-title-banner h1,
       .quarto-title-block .quarto-title-banner h2,
@@ -52,20 +166,32 @@ ul.task-list li input[type="checkbox"] {
         color: black;
 background: #E69F0095;
       }
-</style>
+</style>  
+      </head>
 
+  <body>
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link"><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Article Notebook</h6>
 
-<meta name="citation_title" content="Admission Evaluation Criteria Analysis">
-<meta name="citation_author" content="Bella Shi">
-<meta name="citation_author" content="Samantha Moon">
-<meta name="citation_author" content="Lianghui Yi">
-<meta name="citation_language" content="en">
-</head>
+            <a
+        href="index.qmd"
+        class="btn btn-primary quarto-download-embed"
+        data-noresolveinput="true"
+        download="index.qmd"
+        >Download Source</a
+      >
+          </div>
 
-<body>
-
-<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+     <div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <div id="quarto-toc-target"></div>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">      <header id="title-block-header" class="quarto-title-block default toc-left">
+  <div class="quarto-title-banner">
     <div class="quarto-title column-body">
       <h1 class="title">Admission Evaluation Criteria Analysis</h1>
             <p class="subtitle lead">DSAN 5900: Digital Storytelling</p>
@@ -112,79 +238,111 @@ background: #E69F0095;
               </div>
       </div>
       <div class="quarto-title-meta-column-end quarto-other-formats-target">
-      <div class="quarto-alternate-formats"><div class="quarto-title-meta-heading">Other Formats</div><div class="quarto-title-meta-contents"><p><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></p></div></div></div>
+      </div>
     </div>
 
 
 
     <div class="quarto-other-links-text-target">
     </div>  </div>
-</header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
-<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  <nav id="TOC" role="doc-toc" class="toc-active">
+</header>
+
+     <nav id="TOC" role="doc-toc">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
-  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
-  <li><a href="#visualizations-and-analysis" id="toc-visualizations-and-analysis" class="nav-link" data-scroll-target="#visualizations-and-analysis">Visualizations and Analysis</a>
-  <ul class="collapse">
-  <li><a href="#admission-rates-by-state" id="toc-admission-rates-by-state" class="nav-link" data-scroll-target="#admission-rates-by-state">1. Admission Rates by State</a></li>
-  <li><a href="#gpa-and-test-scores-for-admitted-vs.-rejected-students" id="toc-gpa-and-test-scores-for-admitted-vs.-rejected-students" class="nav-link" data-scroll-target="#gpa-and-test-scores-for-admitted-vs.-rejected-students">2. GPA and Test Scores for Admitted vs.&nbsp;Rejected Students</a></li>
-  <li><a href="#correlation-heatmap" id="toc-correlation-heatmap" class="nav-link" data-scroll-target="#correlation-heatmap">3. Correlation Heatmap</a></li>
-  <li><a href="#boxplot-of-voluteer-level-distribution-grouped-by-decision" id="toc-boxplot-of-voluteer-level-distribution-grouped-by-decision" class="nav-link" data-scroll-target="#boxplot-of-voluteer-level-distribution-grouped-by-decision">4. Boxplot of Voluteer Level Distribution Grouped by Decision</a></li>
-  <li><a href="#bar-plot-acceptance-rates" id="toc-bar-plot-acceptance-rates" class="nav-link" data-scroll-target="#bar-plot-acceptance-rates">5. Bar Plot: Acceptance Rates</a></li>
+  <li><a href="#introduction" id="toc-introduction">Introduction</a>
+  <ul>
+  <li><a href="#objectives" id="toc-objectives">Objectives</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning">Data Cleaning</a></li>
+  <li><a href="#visualizations-and-analysis" id="toc-visualizations-and-analysis">Visualizations and Analysis</a>
+  <ul>
+  <li><a href="#admission-rates-by-state" id="toc-admission-rates-by-state">1. Admission Rates by State</a></li>
+  <li><a href="#gpa-and-test-scores-for-admitted-vs.-rejected-students" id="toc-gpa-and-test-scores-for-admitted-vs.-rejected-students">2. GPA and Test Scores for Admitted vs. Rejected Students</a></li>
+  <li><a href="#correlation-heatmap" id="toc-correlation-heatmap">3. Correlation Heatmap</a></li>
+  <li><a href="#boxplot-of-voluteer-level-distribution-grouped-by-decision" id="toc-boxplot-of-voluteer-level-distribution-grouped-by-decision">4. Boxplot of Voluteer Level Distribution Grouped by Decision</a></li>
+  <li><a href="#bar-plot-acceptance-rates" id="toc-bar-plot-acceptance-rates">5. Bar Plot: Acceptance Rates</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><img src="images/acceptance_rates_factors.png" class="img-fluid"></a>
-  <ul class="collapse">
-  <li><a href="#conclusion-and-future-recommendations" id="toc-conclusion-and-future-recommendations" class="nav-link" data-scroll-target="#conclusion-and-future-recommendations">Conclusion and Future Recommendations</a>
-  <ul class="collapse">
-  <li><a href="#gpa-and-test-score" id="toc-gpa-and-test-score" class="nav-link" data-scroll-target="#gpa-and-test-score">GPA and Test Score</a></li>
-  <li><a href="#volunteer-level" id="toc-volunteer-level" class="nav-link" data-scroll-target="#volunteer-level">Volunteer Level</a></li>
-  <li><a href="#applicants-states" id="toc-applicants-states" class="nav-link" data-scroll-target="#applicants-states">Applicant’s States</a></li>
+  <li><a href="#section" id="toc-section"><img src="images/acceptance_rates_factors.png" class="img-fluid" /></a>
+  <ul>
+  <li><a href="#conclusion-and-future-recommendations" id="toc-conclusion-and-future-recommendations">Conclusion and Future Recommendations</a>
+  <ul>
+  <li><a href="#gpa-and-test-score" id="toc-gpa-and-test-score">GPA and Test Score</a></li>
+  <li><a href="#volunteer-level" id="toc-volunteer-level">Volunteer Level</a></li>
+  <li><a href="#applicants-states" id="toc-applicants-states">Applicant’s States</a></li>
   </ul></li>
-  <li><a href="#future-recommendations" id="toc-future-recommendations" class="nav-link" data-scroll-target="#future-recommendations">Future Recommendations</a></li>
-  <li><a href="#marketing-campaign-suggestions" id="toc-marketing-campaign-suggestions" class="nav-link" data-scroll-target="#marketing-campaign-suggestions">Marketing Campaign Suggestions:</a></li>
-  <li><a href="#overall-strategy" id="toc-overall-strategy" class="nav-link" data-scroll-target="#overall-strategy">Overall Strategy</a></li>
+  <li><a href="#future-recommendations" id="toc-future-recommendations">Future Recommendations</a></li>
+  <li><a href="#marketing-campaign-suggestions" id="toc-marketing-campaign-suggestions">Marketing Campaign Suggestions:</a></li>
+  <li><a href="#overall-strategy" id="toc-overall-strategy">Overall Strategy</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="index-preview.html"><i class="bi bi-journal-code"></i>Article Notebook</a></li></ul></div></nav>
-</div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-</div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-  
-
-
-<section id="introduction" class="level1">
+</nav>  <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>This report provides an analysis of the admissions data to identify key factors influencing admissions decisions. The goal is to generate actionable insights for institutional leadership to support strategic decision-making.</p>
 <section id="objectives" class="level2">
-<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<h2>Objectives</h2>
 <ul>
 <li>Understand the distribution of admissions decisions across states.</li>
 <li>Analyze the impact of GPA, test scores, work experience, and volunteer levels on admissions.</li>
 <li>Provide actionable recommendations based on data-driven insights.</li>
 </ul>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;SummerStudentAdmissions2.csv&#39;</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 88 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr (2): Decision, State
+dbl (6): GPA, WorkExp, TestScore, WritingScore, Gender, VolunteerLevel
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial data check</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+</details>
 <div class="cell-output-display">
 <div class="kable-table">
-<table class="table table-sm table-striped small">
+<table style="width:100%;">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 14%">
-<col style="width: 6%">
-<col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 16%">
-<col style="width: 8%">
-<col style="width: 19%">
+<col style="width: 11%" />
+<col style="width: 14%" />
+<col style="width: 6%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 16%" />
+<col style="width: 8%" />
+<col style="width: 19%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -263,8 +421,12 @@ background: #E69F0095;
 </table>
 </div>
 </div>
-<a class="quarto-notebook-link" id="nblink-1" href="index-preview.html">Source: Article Notebook</a></div>
+</div>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Decision            State                GPA           WorkExp      
  Length:88          Length:88          Min.   :2.340   Min.   :  0.00  
@@ -273,7 +435,7 @@ background: #E69F0095;
                                        Mean   :3.540   Mean   :  3.21  
                                        3rd Qu.:3.745   3rd Qu.:  2.70  
                                        Max.   :6.000   Max.   :100.00  
-                                       NA's   :1                       
+                                       NA&#39;s   :1                       
    TestScore      WritingScore       Gender        VolunteerLevel
  Min.   :751.0   Min.   :  1.0   Min.   :-1.0000   Min.   :0.0   
  1st Qu.:779.0   1st Qu.: 77.0   1st Qu.: 0.0000   1st Qu.:1.0   
@@ -281,31 +443,73 @@ background: #E69F0095;
  Mean   :875.7   Mean   : 82.6   Mean   : 0.5349   Mean   :2.5   
  3rd Qu.:966.0   3rd Qu.: 93.0   3rd Qu.: 1.0000   3rd Qu.:4.0   
  Max.   :970.0   Max.   :100.0   Max.   : 1.0000   Max.   :5.0   
- NA's   :1                       NA's   :2                       </code></pre>
+ NA&#39;s   :1                       NA&#39;s   :2                       </code></pre>
 </div>
-<a class="quarto-notebook-link" id="nblink-2" href="index-preview.html">Source: Article Notebook</a></div>
+</div>
 </section>
 <section id="data-cleaning" class="level2">
-<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
+<h2>Data Cleaning</h2>
 <ol type="1">
 <li>Remove invalid ‘Decision’ values.</li>
 </ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove invalid &#39;Decision&#39; values</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>valid_decisions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Admit&#39;</span>, <span class="st">&#39;Decline&#39;</span>, <span class="st">&#39;Waitlist&#39;</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Decision <span class="sc">%in%</span> valid_decisions)</span></code></pre></div>
+</details>
+</div>
 <ol start="2" type="1">
 <li>Replace invalid gender values (-1.0) with NA.</li>
 </ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace invalid gender values (-1.0) with NA</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>Gender <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span>, <span class="cn">NA</span>, data<span class="sc">$</span>Gender)</span></code></pre></div>
+</details>
+</div>
 <ol start="3" type="1">
 <li>Handle missing values.</li>
 </ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Handle missing values</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span></code></pre></div>
+</details>
+</div>
 <ol start="4" type="1">
 <li>Unify State names.</li>
 </ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unify State names, Capitalize leading letter and remove spaces</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>State <span class="ot">&lt;-</span> <span class="fu">str_to_title</span>(data<span class="sc">$</span>State)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>State <span class="ot">&lt;-</span> <span class="fu">str_replace_all</span>(data<span class="sc">$</span>State, <span class="st">&quot; &quot;</span>, <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+</details>
+</div>
 <ol start="5" type="1">
 <li>Remote outliers.</li>
 </ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove outliers for each column</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(WorkExp <span class="sc">&lt;=</span> <span class="dv">20</span>)</span></code></pre></div>
+</details>
+</div>
 <ol start="6" type="1">
 <li>Check cleaned data.</li>
 </ol>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check cleaned data</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Decision            State                GPA           WorkExp     
  Length:81          Length:81          Min.   :2.340   Min.   :0.000  
@@ -322,70 +526,117 @@ background: #E69F0095;
  3rd Qu.:966.0   3rd Qu.: 93.00   3rd Qu.:1.0000   3rd Qu.:4.000  
  Max.   :969.0   Max.   :100.00   Max.   :1.0000   Max.   :5.000  </code></pre>
 </div>
-<a class="quarto-notebook-link" id="nblink-3" href="index-preview.html">Source: Article Notebook</a></div>
+</div>
 </section>
 <section id="visualizations-and-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="visualizations-and-analysis">Visualizations and Analysis</h2>
+<h2>Visualizations and Analysis</h2>
 <section id="admission-rates-by-state" class="level3">
-<h3 class="anchored" data-anchor-id="admission-rates-by-state">1. Admission Rates by State</h3>
+<h3>1. Admission Rates by State</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">fill =</span> Decision)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&#39;fill&#39;</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> ..count..), <span class="at">stat =</span> <span class="st">&#39;count&#39;</span>, <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">color =</span> <span class="st">&#39;white&#39;</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Admission Rates by State&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Proportion&#39;</span>, <span class="at">x =</span> <span class="st">&#39;State&#39;</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
+ℹ Please use `after_stat(count)` instead.</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="index_files/figure-html/admission-rates-by-state-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/admission-rates-by-state-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure>
+<p><a href="index_files/figure-html/admission-rates-by-state-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/admission-rates-by-state-1.png" class="img-fluid" width="672" /></a></p>
 </figure>
 </div>
 </div>
-<a class="quarto-notebook-link" id="nblink-4" href="index-preview.html">Source: Article Notebook</a></div>
+</div>
 <p>To comparing the admission rates across states with enough data points, we filtered out states with less than 10 applicants.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter states with less than 10 applicants</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>data_filtered <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(State) <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;=</span> <span class="dv">10</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot admission rates by state</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_filtered, <span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">fill =</span> Decision)) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&#39;fill&#39;</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> ..count..), <span class="at">stat =</span> <span class="st">&#39;count&#39;</span>, <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">color =</span> <span class="st">&#39;white&#39;</span>) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Admission Rates by State&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Proportion&#39;</span>, <span class="at">x =</span> <span class="st">&#39;State&#39;</span>) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="index_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure>
+<p><a href="index_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672" /></a></p>
 </figure>
 </div>
 </div>
-<a class="quarto-notebook-link" id="nblink-5" href="index-preview.html">Source: Article Notebook</a></div>
+</div>
 <p><strong>Analysis:</strong> The visualization highlights which states have higher or lower admission rates. States with consistently low acceptance rates may need targeted recruitment strategies or support programs.</p>
 </section>
 <section id="gpa-and-test-scores-for-admitted-vs.-rejected-students" class="level3">
-<h3 class="anchored" data-anchor-id="gpa-and-test-scores-for-admitted-vs.-rejected-students">2. GPA and Test Scores for Admitted vs.&nbsp;Rejected Students</h3>
+<h3>2. GPA and Test Scores for Admitted vs. Rejected Students</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> GPA, <span class="at">y =</span> TestScore, <span class="at">color =</span> Decision)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;GPA vs. Test Scores by Admission Decision&#39;</span>, <span class="at">x =</span> <span class="st">&#39;GPA&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Test Score&#39;</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="index_files/figure-html/gpa-testscore-distribution-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/gpa-testscore-distribution-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure>
+<p><a href="index_files/figure-html/gpa-testscore-distribution-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/gpa-testscore-distribution-1.png" class="img-fluid" width="672" /></a></p>
 </figure>
 </div>
 </div>
-<a class="quarto-notebook-link" id="nblink-6" href="index-preview.html">Source: Article Notebook</a></div>
+</div>
 <p><strong>Analysis:</strong> This scatter plot reveals how GPA and test scores correlate with admissions decisions. Students with higher GPAs and test scores generally have a higher chance of being admitted.</p>
 </section>
 <section id="correlation-heatmap" class="level3">
-<h3 class="anchored" data-anchor-id="correlation-heatmap">3. Correlation Heatmap</h3>
+<h3>3. Correlation Heatmap</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">select</span>(GPA, WorkExp, TestScore, WritingScore, VolunteerLevel) <span class="sc">%&gt;%</span> <span class="fu">cor</span>()</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(corr_matrix, <span class="at">lab =</span> <span class="cn">TRUE</span>, <span class="at">title =</span> <span class="st">&#39;Correlation Matrix&#39;</span>)</span></code></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="index_files/figure-html/correlation-heatmap-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/correlation-heatmap-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure>
+<p><a href="index_files/figure-html/correlation-heatmap-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/correlation-heatmap-1.png" class="img-fluid" width="672" /></a></p>
 </figure>
 </div>
 </div>
-<a class="quarto-notebook-link" id="nblink-7" href="index-preview.html">Source: Article Notebook</a></div>
+</div>
 <p><strong>Analysis:</strong> The heatmap shows the correlations between quantitative variables. Strong correlations can help identify which metrics are most predictive of admissions success.</p>
 </section>
 <section id="boxplot-of-voluteer-level-distribution-grouped-by-decision" class="level3">
-<h3 class="anchored" data-anchor-id="boxplot-of-voluteer-level-distribution-grouped-by-decision">4. Boxplot of Voluteer Level Distribution Grouped by Decision</h3>
+<h3>4. Boxplot of Voluteer Level Distribution Grouped by Decision</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Decision, <span class="at">y =</span> VolunteerLevel, <span class="at">fill =</span> Decision)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Volunteer Level Distribution by Admission Decision&#39;</span>, <span class="at">x =</span> <span class="st">&#39;Decision&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Volunteer Level&#39;</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><a href="index_files/figure-html/boxplot-volunteer-level-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/boxplot-volunteer-level-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure>
+<p><a href="index_files/figure-html/boxplot-volunteer-level-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/boxplot-volunteer-level-1.png" class="img-fluid" width="672" /></a></p>
 </figure>
 </div>
 </div>
-<a class="quarto-notebook-link" id="nblink-8" href="index-preview.html">Source: Article Notebook</a></div>
+</div>
 <p><strong>Analysis:</strong> This grouped boxplot provides insights into the distribution of admissions criteria.</p>
 <p>Key observations include:</p>
 <ul>
@@ -396,17 +647,17 @@ background: #E69F0095;
 </ul>
 </section>
 <section id="bar-plot-acceptance-rates" class="level3">
-<h3 class="anchored" data-anchor-id="bar-plot-acceptance-rates">5. Bar Plot: Acceptance Rates</h3>
+<h3>5. Bar Plot: Acceptance Rates</h3>
 </section>
 </section>
 </section>
 <section id="section" class="level1">
-<h1><img src="images/acceptance_rates_factors.png" class="img-fluid"></h1>
+<h1><img src="images/acceptance_rates_factors.png" class="img-fluid" /></h1>
 <p><strong>Analysis:</strong> The bar chart subplots show the spread of admitted individuals by GPA, work experience, test score, writing score, volunteer level, and state.</p>
 <section id="conclusion-and-future-recommendations" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion-and-future-recommendations">Conclusion and Future Recommendations</h2>
+<h2>Conclusion and Future Recommendations</h2>
 <section id="gpa-and-test-score" class="level3">
-<h3 class="anchored" data-anchor-id="gpa-and-test-score">GPA and Test Score</h3>
+<h3>GPA and Test Score</h3>
 <ol type="1">
 <li>High GPAs (3.0-3.5 and 3.5-4.0) have significantly higher acceptance rates, with the 3.5-4.0 range being the strongest predictor of acceptance.</li>
 <li>A sharp increase in acceptance rates is observed in the 900-1000 test score range.</li>
@@ -414,20 +665,20 @@ background: #E69F0095;
 </ol>
 </section>
 <section id="volunteer-level" class="level3">
-<h3 class="anchored" data-anchor-id="volunteer-level">Volunteer Level</h3>
+<h3>Volunteer Level</h3>
 <ol type="1">
 <li>Volunteer levels do not show a strong correlation with acceptance rates, suggesting this might not be a significant criterion in the current evaluation process.</li>
 </ol>
 </section>
 <section id="applicants-states" class="level3">
-<h3 class="anchored" data-anchor-id="applicants-states">Applicant’s States</h3>
+<h3>Applicant’s States</h3>
 <ol type="1">
 <li>There is a notable geographical impact on acceptance rates, with California having the highest acceptance rate.</li>
 </ol>
 </section>
 </section>
 <section id="future-recommendations" class="level2">
-<h2 class="anchored" data-anchor-id="future-recommendations">Future Recommendations</h2>
+<h2>Future Recommendations</h2>
 <ol type="1">
 <li>Enhance GPA Weighting
 <ul>
@@ -451,7 +702,7 @@ background: #E69F0095;
 </ol>
 </section>
 <section id="marketing-campaign-suggestions" class="level2">
-<h2 class="anchored" data-anchor-id="marketing-campaign-suggestions">Marketing Campaign Suggestions:</h2>
+<h2>Marketing Campaign Suggestions:</h2>
 <ol type="1">
 <li>Target High-Performing Students
 <ul>
@@ -461,22 +712,20 @@ background: #E69F0095;
 <li>Regional Campaigns
 <ul>
 <li>Implement targeted marketing in high-acceptance regions such as California, Virginia, and Vermont.</li>
-<li>For states with lower acceptance rates or, explore potential barriers (e.g., awareness, application support) and address them through localized campaigns.</li>
+<li>For states with lower acceptance rates and lower app, explore potential barriers (e.g., awareness, application support) and address them through localized campaigns.</li>
 </ul></li>
 </ol>
 </section>
 <section id="overall-strategy" class="level2">
-<h2 class="anchored" data-anchor-id="overall-strategy">Overall Strategy</h2>
+<h2>Overall Strategy</h2>
 <ol type="1">
 <li>By focusing on academic excellence and regional strengths, while adjusting evaluation criteria to align with institutional priorities, the admissions team can enhance both the quality and diversity of incoming students.</li>
 <li>Simultaneously, targeted and data-driven marketing efforts will ensure that the institution attracts well-qualified applicants and improves overall admission outcomes.</li>
 </ol>
 </section>
 </section>
-
-</main>
-<!-- /main column -->
-<script id="quarto-html-after-body" type="application/javascript">
+     </main>
+<!-- /main column -->  <script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -862,9 +1111,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-</div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
@@ -888,9 +1135,6 @@ window.onload = () => {
   });
 
 };
-          </script>
-
-
-
-
-</body></html>
+          </script> 
+  </body>
+</html>
